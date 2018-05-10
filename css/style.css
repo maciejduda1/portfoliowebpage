@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'Genericons';
+  src: url("../icons/genericons-regular-webfont.woff") format("woff"), url("../icons/genericons-regular-webfont.eot") format("truetype"); }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: #ffffff; }
+
+#fullpage {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "section-start-page section-start-page section-start-page" ". section-bio ." ". section-portfolio ." ". section-contact ."; }
+
+.menu-button {
+  position: absolute;
+  top: 5px;
+  left: 80%;
+  z-index: 999; }
+  .menu-button p {
+    color: #04536c;
+    cursor: pointer; }
+    .menu-button p:before {
+      font-family: 'Genericons';
+      content: '\f419';
+      padding-right: 5px; }
+    .menu-button p:focus:before {
+      font-family: 'Genericons';
+      content: '\f406'; }
+
+.scroll-button {
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  transform: rotate(90deg);
+  z-index: 999;
+  cursor: pointer; }
+  .scroll-button a {
+    text-decoration: none;
+    color: #04536c;
+    z-index: 999;
+    margin-right: 10px;
+    opacity: 1; }
+  .scroll-button hr {
+    margin-left: 50px;
+    width: 50px;
+    opacity: 0.3;
+    position: absolute; }
+
+nav {
+  width: 100vw;
+  top: 5px;
+  position: absolute;
+  z-index: 998;
+  display: none; }
+  nav .nav-menu {
+    padding: 0 20vw 1vh 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    list-style-type: none;
+    font-family: "IBM Plex Serif", serif;
+    font-size: 1.9vmax;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.7); }
+    nav .nav-menu .nav-item {
+      padding-right: 15px; }
+      nav .nav-menu .nav-item a {
+        text-decoration: none;
+        font-family: "Roboto Mono", monospace;
+        color: white; }
+        nav .nav-menu .nav-item a:hover {
+          color: #4C2403;
+          transition: 0.5s; }
+
+.section-start-page {
+  grid-area: section-start-page;
+  background-image: url("../images/code-coding-computer-front.jpg");
+  background-color: #003442;
+  background-size: cover; }
+  .section-start-page div {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .section-start-page div .title {
+      color: white;
+      font-family: "Gloria Hallelujah", cursive;
+      font-size: 4em; }
+      .section-start-page div .title .subtitle {
+        display: block;
+        font-size: 2rem; }
+
+.section-bio {
+  grid-area: section-bio; }
+  .section-bio div {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 100%;
+    grid-template-rows: 25vh 75vh;
+    grid-template-areas: "bio-buttons"  "bio-text"; }
+    .section-bio div .bio-text {
+      background-image: url("../images/computer-background.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      grid-area: bio-text;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center; }
+      .section-bio div .bio-text #bio-life-text, .section-bio div .bio-text #bio-skills-text, .section-bio div .bio-text #bio-work-text {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 2.4vmax;
+        color: #04536c;
+        text-align: justify;
+        text-justify: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        .section-bio div .bio-text #bio-life-text p, .section-bio div .bio-text #bio-skills-text p, .section-bio div .bio-text #bio-work-text p {
+          align-self: flex-start;
+          margin-top: 10px; }
+        .section-bio div .bio-text #bio-life-text h2, .section-bio div .bio-text #bio-skills-text h2, .section-bio div .bio-text #bio-work-text h2 {
+          margin-top: 10px; }
+      .section-bio div .bio-text #bio-work-text h2 {
+        font-size: 4vmax; }
+      .section-bio div .bio-text #bio-work-text span {
+        color: #6C3304;
+        padding: 2% 0;
+        display: block; }
+    .section-bio div .bio-buttons {
+      grid-area: bio-buttons;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: row; }
+      .section-bio div .bio-buttons a {
+        font-family: "IBM Plex Serif", serif;
+        font-size: 2.5vmax;
+        color: #04536c;
+        padding-right: 10px;
+        text-decoration: none; }
+        .section-bio div .bio-buttons a:focus {
+          text-decoration: wavy;
+          color: #6C3304;
+          font-size: 2.3vmax; }
+        .section-bio div .bio-buttons a:hover {
+          color: #4C2403;
+          font-size: 2.3vmax; }
+
+.section-portfolio {
+  grid-area: section-portfolio; }
+  .section-portfolio .portfolio-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+    .section-portfolio .portfolio-wrapper .project {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: space-around; }
+      .section-portfolio .portfolio-wrapper .project p {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+      .section-portfolio .portfolio-wrapper .project h1.github-acc:before {
+        font-family: 'Genericons';
+        content: '\f200'; }
+
+.section-contact {
+  grid-area: section-contact; }

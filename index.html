@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/jquery.fullPage.css">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|IBM+Plex+Serif|Josefin+Sans|Roboto+Mono:300i" rel="stylesheet">   
+</head>
+<body>
+    <div class="menu-button">
+        <p id='on-click-menu'>Menu</p>
+    </div>
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="#start">Home</a></li>
+            <li class="nav-item"><a href="#bio">About</a></li>
+            <li class="nav-item"><a href="#portfolio">Portfolio</a></li>
+            <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div id="fullpage" >
+        <div class="section section-start-page" data-anchor="start">
+            <div>
+                <h1 class="title">Maciej Duda <span class="subtitle">Front-end Developer</span></h1>
+            </div>
+            <div class="scroll-button">
+                <a href='#bio' id="on-click-scroll">scroll</a>
+                <hr class="scroll-line"> 
+            </div>
+        </div>
+        <div class="section section-bio" data-anchor="bio">
+                <div class="bio-text">
+                    <div id="bio-work-text">
+                        <h2>Work History</h2>
+                        <p><span class="datas">03/2012 – 04/2017</span>Urząd Gminy Gołymin-Ośrodek; Podinspektor ds. ochrony środowiska i gospodarki komunalnej</p>
+                        <p><span class="datas">03//2010 - 01/2011</span>Zakład Ubezpieczeń Społecznych; Stażysta</p> 
+                    </div>
+                    <div id="bio-life-text">
+                        <h2>About</h2>
+                        <p>
+                            Programowaniem zainteresowałem się aby widzieć efekty mojej pracy i rozwijać się w kierunku, który zawsze był mi bliski. W pracy i w życiu jestem osobą pracowitą, odpowiedzialną i uczciwą. Pragnę zdobywać nowe umiejętności i poszerzać swoją wiedzę. Dając mi szansę, zyskacie Państwo oddanego pracownika, skoncentrowanego na osiąganiu wyznaczonych celów i ustawicznym podnoszeniu kwalifikacji.
+                        </p>
+                        <h2>Hobby</h2>
+                        <p>
+                            W wolnych chwilach czytam książki (kryminał, fantasy, rozwój osobisty), gram w gry komputerowe i oglądam mecze piłkarskie.
+                        </p>
+                    </div>
+                    <div id="bio-skills-text">
+                        <h2>IT Skills</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Języki</th>
+                                    <th>Frameworki</th>
+                                    <th>Biblioteki</th>
+                                    <th>Technologie</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr> 
+                                    <td>HTML5</td>
+                                    <td>Express.js</td>
+                                    <td>Bootstrap</td>
+                                    <td>NodeJs</td>
+                                </tr>
+                                <tr>
+                                    <td>CSS3</td>
+                                    <td>React.js</td>
+                                    <td>jQuery</td>
+                                    <td>MongoDB</td>
+                                </tr>
+                                <tr>
+                                    <td>JavaScript</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Git</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Sass</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bio-buttons">
+                    <a href="#" class="bio-work">Work History</a>
+                    <a href="#" class="bio-skills">IT Skills</a>
+                    <a href="#" class="bio-life">About me</a>
+                </div>
+            
+        </div>
+        <div class="section section-portfolio" data-anchor="portfolio">
+            <div class="portfolio-wrapper">
+                <h1>Portfolio</h1>
+                <div class="project">
+                    <h1>This web page code</h1>
+                    <p>Technologie
+                        <span>HTML5</span>
+                        <span>Sass(Scss)</span>
+                        <span>jquery (fullpage.js)</span>
+                    </p>
+                </div>
+                <div class="project">
+                    <h1>Movie Compare App</h1>
+                    <p>Technologie
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JS (React, Redux, Redux-thunk, React-router)</span>
+                        <span>fetch API</span>
+                    </p>
+                </div>
+                <div class="project">
+                    <h1 class="github-acc"><a href="https://github.com/maciejduda1">Mój GitHub</a></h1>  
+                </div>
+            </div>  
+        </div>
+        <div class="section section-contact" data-anchor="contact">
+        <!--      <div class="container">
+                <h1>Moje social media!</h1>
+                <ul class="accordion">
+                    <li class="tab">
+                        <div class="social youtube">
+                            <a href="https://www.youtube.com/channel/UCX6mSahnCRNPT6-2XyVB96w" target="_blank">youtube</a>
+                        </div>
+                        <div class="content">
+                            <h1>Youtube</h1>
+                            <p>Check my youtube gamming channel!</p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <div class="social twitter">
+                            <a href="https://twitter.com/MaciejDuda1" target="_blank">twitter</a>
+                        </div>
+                        <div class="content">
+                            <h1>Twitter</h1>
+                            <p>Check my Twitter!</p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <div class="social facebook">
+                            <a href="https://www.facebook.com/maciek.duda" target="_blank">facebook</a>
+                        </div>
+                        <div class="content">
+                            <h1>facebook</h1>
+                            <p>Check my Facebook!</p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <div class="social linkedin">
+                            <a href="https://www.linkedin.com/in/maciej-duda-5608b3b1/" target="_blank"></a>
+                        </div>
+                        <div class="content">
+                            <h1>linkedIn</h1>
+                            <p>Contact me via LinkedIn!</p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <div class="social github">
+                            <a href="">Github</a>
+                        </div>
+                        <div class="content">
+                            <h1>Github</h1>
+                            <p>Check this page code + my other projects!</p>
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+
+
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./scripts/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="./scripts/index.js"></script>
+</body>
+</html> 

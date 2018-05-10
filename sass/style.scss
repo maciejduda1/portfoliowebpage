@@ -1,0 +1,252 @@
+//colors
+$main-background: #ffffff;
+$nav-link-color: #04536c;
+$nav-link-color-hover: #4C2403;
+$hero-blend-mode-color: #003442;
+$main-text-color: #04536c;
+$secondary-text-color: #6C3304;
+$title-color: white;
+//fonts
+$main-page-font: 'Josefin Sans', sans-serif;
+$italic-font: 'Gloria Hallelujah', cursive;
+$secondary-page-font: 'Roboto Mono', monospace;
+$boxes-font: 'IBM Plex Serif', serif;
+@font-face {
+    font-family: 'Genericons';
+    src: url('../icons/genericons-regular-webfont.woff')format('woff'),
+    url('../icons/genericons-regular-webfont.eot')format('truetype');
+}
+//mixins
+@mixin box-sizing-img($width,$height) {
+    width: $width;
+    height: $height;
+}
+@mixin font-size-family-color($font-family, $font-size, $font-color) {
+    font-family: $font-family;
+    font-size: $font-size;
+    color: $font-color;
+}
+//
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $main-background;
+}
+
+#fullpage {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "section-start-page section-start-page section-start-page"
+        ". section-bio ."
+        ". section-portfolio ."
+        ". section-contact .";     
+}
+
+.menu-button {
+    position: absolute;
+    top: 5px;
+    left: 80%; 
+    z-index: 999;
+    p {
+        color: $nav-link-color;
+        cursor: pointer;
+        &:before { 
+            font-family: 'Genericons';
+            content: '\f419';
+            padding-right: 5px;  
+        }
+        &:focus:before {
+            font-family: 'Genericons';
+            content: '\f406';
+        }
+    } 
+}
+
+.scroll-button {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+    transform: rotate(90deg);
+    z-index: 999;
+    cursor: pointer;
+    a {
+        text-decoration: none;
+        color: $nav-link-color;
+        z-index: 999;
+        margin-right: 10px;
+        opacity: 1;
+    }
+    hr {
+        margin-left: 50px;
+        width: 50px;
+        opacity: 0.3;
+        position: absolute;
+    }
+}
+
+nav {
+    width: 100vw;
+    top: 5px;
+    position: absolute;
+    z-index: 998;
+    display: none;
+    .nav-menu {
+        padding: 0 20vw 1vh 0;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        list-style-type: none;
+        font-family: $boxes-font;
+        font-size: 1.9vmax;
+        font-weight: 700;
+        background-color: rgba(0, 0, 0, 0.7);
+        .nav-item {
+            padding-right: 15px;
+            a {
+                text-decoration: none;
+                font-family: $secondary-page-font;
+                color: $title-color;
+                &:hover {
+                    color: $nav-link-color-hover;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}
+
+.section-start-page {
+    grid-area: section-start-page;
+    background-image: url('../images/code-coding-computer-front.jpg');
+    background-color: $hero-blend-mode-color;
+    background-size: cover;
+//    background-blend-mode: color-dodge;
+    
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .title {
+            color: $title-color;
+            font-family: $italic-font;
+            font-size: 4em;
+            .subtitle {
+                display: block;
+                font-size: 2rem;
+            }
+        } 
+    }
+}
+//BIO
+.section-bio {
+    grid-area: section-bio;
+    div {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: 100%; 
+        grid-template-rows: 25vh 75vh;
+        grid-template-areas: 
+            "bio-buttons" 
+            "bio-text";      
+        .bio-text {
+            background-image: url('../images/computer-background.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; 
+            grid-area: bio-text;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            #bio-life-text, #bio-skills-text, #bio-work-text {
+                @include font-size-family-color($main-page-font, 2.4vmax, $main-text-color);   
+                text-align: justify;   
+                text-justify: auto;         
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p {
+                    align-self: flex-start;
+                    margin-top: 10px;
+                }
+                h2 {
+                    margin-top: 10px;
+                }
+            }
+            #bio-work-text {
+                h2 {
+                    font-size: 4vmax;
+                }
+                span {
+                    color: $secondary-text-color;
+                    padding: 2% 0;
+                    display: block;
+                }
+            }
+        }
+        .bio-buttons {
+            grid-area: bio-buttons;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+            a {
+                @include font-size-family-color($boxes-font, 2.5vmax, $main-text-color);
+                padding-right: 10px;
+                text-decoration: none;
+                &:focus {
+                    text-decoration: wavy;
+                    color: $secondary-text-color;
+                    font-size: 2.3vmax;
+                }
+                &:hover {
+                    color: $nav-link-color-hover;
+                    font-size: 2.3vmax;
+                }
+            }
+        }
+    } 
+}
+
+// Portfolio
+.section-portfolio {
+    grid-area: section-portfolio; 
+    .portfolio-wrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        .project {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: space-around;
+            p {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            h1.github-acc {
+            //    background-color: #24292e;
+                &:before {
+                    font-family: 'Genericons';
+                    content: '\f200';
+                }
+            }
+        }
+    }   
+}
+
+//Contact
+.section-contact {
+    grid-area: section-contact;
+}
+// @import "./media.scss";
