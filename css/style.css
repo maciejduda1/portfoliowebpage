@@ -16,22 +16,6 @@ body {
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "section-start-page section-start-page section-start-page" ". section-bio ." ". section-portfolio ." ". section-contact ."; }
 
-.menu-button {
-  position: absolute;
-  top: 5px;
-  left: 80%;
-  z-index: 999; }
-  .menu-button p {
-    color: #04536c;
-    cursor: pointer; }
-    .menu-button p:before {
-      font-family: 'Genericons';
-      content: '\f419';
-      padding-right: 5px; }
-    .menu-button p:focus:before {
-      font-family: 'Genericons';
-      content: '\f406'; }
-
 .scroll-button {
   position: absolute;
   top: 90%;
@@ -41,7 +25,7 @@ body {
   cursor: pointer; }
   .scroll-button a {
     text-decoration: none;
-    color: #04536c;
+    color: #ffffff;
     z-index: 999;
     margin-right: 10px;
     opacity: 1; }
@@ -55,27 +39,43 @@ nav {
   width: 100vw;
   top: 5px;
   position: absolute;
-  z-index: 998;
-  display: none; }
+  z-index: 998; }
   nav .nav-menu {
-    padding: 0 20vw 1vh 0;
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
     list-style-type: none;
     font-family: "IBM Plex Serif", serif;
-    font-size: 1.9vmax;
+    font-size: 2.2vmax;
     font-weight: 700;
     background-color: rgba(0, 0, 0, 0.7); }
-    nav .nav-menu .nav-item {
-      padding-right: 15px; }
-      nav .nav-menu .nav-item a {
+    nav .nav-menu .menu-button p {
+      color: #ffffff;
+      cursor: pointer; }
+      nav .nav-menu .menu-button p:before {
+        font-family: 'Genericons';
+        content: '\f419';
+        padding-right: 5px; }
+      nav .nav-menu .menu-button p:focus:before {
+        font-family: 'Genericons';
+        content: '\f406'; }
+    nav .nav-menu .nav-item-visible {
+      padding-right: 15px;
+      position: relative;
+      display: list-item; }
+      nav .nav-menu .nav-item-visible:last-child {
+        display: block; }
+      nav .nav-menu .nav-item-visible a {
         text-decoration: none;
         font-family: "Roboto Mono", monospace;
         color: white; }
-        nav .nav-menu .nav-item a:hover {
+        nav .nav-menu .nav-item-visible a:hover {
           color: #4C2403;
           transition: 0.5s; }
+    nav .nav-menu .nav-item {
+      padding-right: 15px;
+      position: absolute;
+      display: none; }
 
 .section-start-page {
   grid-area: section-start-page;
@@ -175,4 +175,14 @@ nav {
         content: '\f200'; }
 
 .section-contact {
-  grid-area: section-contact; }
+  grid-area: section-contact;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(45deg, red, blue); }
+  .section-contact h1 {
+    font-size: 3vmax;
+    color: #04536c; }
+  .section-contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }

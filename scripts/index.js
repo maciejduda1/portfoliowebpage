@@ -1,8 +1,10 @@
 $('#fullpage').fullpage();
 //on Button menu
+
 $('#on-click-menu').on('click', function() {
-    $('nav').slideToggle('slow');
-});
+    $('li').toggleClass('nav-item-visible');
+    $('li').toggleClass('nav-item');
+}); 
 // on Click scroll 
 $('.scroll-button').mouseenter(function(){
     $('.scroll-line').animate({
