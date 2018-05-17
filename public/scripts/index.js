@@ -2,8 +2,9 @@ $('#fullpage').fullpage();
 //on Button menu
 
 $('#on-click-menu').on('click', function() {
-    $('li').toggleClass('nav-item-visible');
-    $('li').toggleClass('nav-item');
+    $('.nav-menu').animate({
+        width:"toggle",
+    })
 }); 
 // on Click scroll 
 $('.scroll-button').mouseenter(function(){

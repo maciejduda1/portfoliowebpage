@@ -11,12 +11,12 @@
 </head>
 <body>
     <nav>
+        <p class="menu-button" id='on-click-menu'>Menu</p>
         <ul class="nav-menu">
             <li class="nav-item"><a href="#start">Home</a></li>
             <li class="nav-item"><a href="#bio">About</a></li>
             <li class="nav-item"><a href="#portfolio">Portfolio</a></li>
             <li class="nav-item"><a href="#contact">Contact</a></li>
-            <li class="nav-item menu-button"><p id='on-click-menu'>Menu</p></li>
         </ul>
     </nav>
     <div id="fullpage" >
@@ -121,13 +121,14 @@
         </div>
         <div class="section section-contact" data-anchor="contact">
             <h1>Contact me by using the form below!</h1>
-            <form action="mailto:maciej.duda1@gazeta.pl" method="POST" enctype="text/plain">
-                <label for="contactname">Your name:</label>
-                <input type="text" name="contactname">
-                <label for="contactemail">Your e-mail:</label>
-                <input type="email" name="contactemail">
+            <form action="https://formspree.io/maciej.duda1@gazeta.pl" method="POST">
+                <input type="hidden" name="_subject" value="Contact Form">
+                <label for="name">name:</label>
+                <input type="text" name="name" placeholder="your name" required> 
+                <label for="_replyto">e-mail:</label>
+                <input type="email" name="_replyto" required>
                 <label for="message">Message:</label>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="message" placeholder="Your message" cols="30" rows="10" required></textarea>
                 <div>
                     <input type="submit" value="Send Message">
                     <input type="reset" value="Reset">
@@ -135,9 +136,6 @@
             </form>
         </div>
     </div>
-
-
-
 
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"

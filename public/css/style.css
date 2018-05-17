@@ -8,7 +8,8 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  background-image: linear-gradient(45deg, #da1818, #108dc7); }
 
 #fullpage {
   display: grid;
@@ -36,11 +37,27 @@ body {
     position: absolute; }
 
 nav {
+  line-height: 350%;
   width: 100vw;
   top: 5px;
   position: absolute;
-  z-index: 998; }
+  z-index: 998;
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: flex-end; }
+  nav .menu-button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    cursor: pointer; }
+    nav .menu-button:before {
+      font-family: 'Genericons';
+      content: '\f419';
+      padding-right: 5px; }
+    nav .menu-button:focus:before {
+      font-family: 'Genericons';
+      content: '\f406'; }
   nav .nav-menu {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
@@ -48,34 +65,22 @@ nav {
     font-family: "IBM Plex Serif", serif;
     font-size: 2.2vmax;
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.7); }
-    nav .nav-menu .menu-button p {
-      color: #ffffff;
-      cursor: pointer; }
-      nav .nav-menu .menu-button p:before {
-        font-family: 'Genericons';
-        content: '\f419';
-        padding-right: 5px; }
-      nav .nav-menu .menu-button p:focus:before {
-        font-family: 'Genericons';
-        content: '\f406'; }
-    nav .nav-menu .nav-item-visible {
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden; }
+    nav .nav-menu .nav-item {
       padding-right: 15px;
       position: relative;
       display: list-item; }
-      nav .nav-menu .nav-item-visible:last-child {
+      nav .nav-menu .nav-item:last-child {
         display: block; }
-      nav .nav-menu .nav-item-visible a {
+      nav .nav-menu .nav-item a {
         text-decoration: none;
         font-family: "Roboto Mono", monospace;
-        color: white; }
-        nav .nav-menu .nav-item-visible a:hover {
-          color: #4C2403;
-          transition: 0.5s; }
-    nav .nav-menu .nav-item {
-      padding-right: 15px;
-      position: absolute;
-      display: none; }
+        color: #941e1e; }
+        nav .nav-menu .nav-item a:hover {
+          color: white;
+          text-decoration: underline;
+          transition: all 1s; }
 
 .section-start-page {
   grid-area: section-start-page;
@@ -87,7 +92,7 @@ nav {
     justify-content: center;
     align-items: center; }
     .section-start-page div .title {
-      color: white;
+      color: #941e1e;
       font-family: "Gloria Hallelujah", cursive;
       font-size: 4em; }
       .section-start-page div .title .subtitle {
@@ -149,7 +154,7 @@ nav {
           color: #6C3304;
           font-size: 2.3vmax; }
         .section-bio div .bio-buttons a:hover {
-          color: #4C2403;
+          color: white;
           font-size: 2.3vmax; }
 
 .section-portfolio {
@@ -177,8 +182,7 @@ nav {
 .section-contact {
   grid-area: section-contact;
   display: flex;
-  flex-direction: column;
-  background-image: linear-gradient(45deg, red, blue); }
+  flex-direction: column; }
   .section-contact h1 {
     font-size: 3vmax;
     color: #04536c; }

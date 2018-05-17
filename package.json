@@ -15,7 +15,6 @@
     "grunt-sass": "^2.1.0"
   },
   "dependencies": {
-    "jquery": "^3.3.1",
-    "nodemailer": "^4.6.4"
+    "jquery": "^3.3.1"
   }
 }

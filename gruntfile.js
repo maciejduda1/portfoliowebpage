@@ -7,12 +7,12 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/style.css': 'sass/style.scss'
+                    'public/css/style.css': 'public/sass/style.scss'
                 }
             }
         },
         watch: {
-            files: 'sass/*.scss', 
+            files: 'public/sass/*.scss', 
             tasks: ['sass'],
                 options: {
                     spawn: false,
@@ -22,14 +22,14 @@ module.exports = function(grunt) {
             dev: {
                 bsFiles: {
                     src : [
-                        'css/*.css',
-                        './*.html',
-                        'scripts/*.js',
+                        'public/css/*.css',
+                        'public/*.html',
+                        'public/scripts/*.js',
                     ]
                 },
                 options: {
                     watchTask: true,
-                    server: './.'
+                    server: 'public/.'
                 }
             }
         }
