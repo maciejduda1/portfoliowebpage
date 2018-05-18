@@ -3,7 +3,7 @@ $main-background: #ffffff;
 $nav-link-color: #ffffff;
 $nav-link-color-hover: rgb(255, 255, 255);
 $hero-blend-mode-color: #003442;
-$main-text-color: #04536c;
+$main-text-color: #101803;
 $secondary-text-color: #6C3304;
 $title-color: rgb(148, 30, 30);
 //fonts
@@ -127,6 +127,9 @@ nav {
     }
 }
 
+.section {
+    max-height:100vh;
+}
 
 .section-start-page {
     grid-area: section-start-page;
@@ -257,15 +260,75 @@ nav {
     grid-area: section-contact;
     display: flex;
     flex-direction: column;
-   
     h1 {
         font-size: 3vmax;
         color: $main-text-color;
+        text-align: center;
     }
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+    .media-icons {
+        margin-top:5vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        p {
+            width: 100%;
+            text-align: center;
+        }
+        a {
+            box-shadow: 2px 3px 5px black;
+            margin-right: 5vw;
+            color: #ffffff;
+            background-color: #ffffff;
+            text-decoration: none;
+            font-size: 2vmax;
+            padding: 2vmax;
+            border-radius: 50%;
+            border: 1px solid white; 
+            &:last-child {
+                margin-right: 0;
+            }
+            &:hover {
+                    background-color: rgb(175, 195, 214);
+                }
+            &:before {
+                font-size: 3vmax;      
+            }
+        }
+    }
 }
 
+#twitter {
+    &:before {
+        color: #0084b4;
+        font-family: 'Genericons';
+        content: '\f202';
+    }
+}
+#facebook {
+    &:before {
+        color: #3b5998;
+        font-family: 'Genericons';
+        content: '\f203';
+    }
+}
+#linkedin {
+    &:before {
+        color: #4875B4;
+        font-family: 'Genericons';
+        content: '\f207';
+    }
+}
+#e-mail {
+    &:before {
+        color: rgb(35, 75, 185);
+        font-family: 'Genericons';
+        content: '\f410';
+    }
+}
