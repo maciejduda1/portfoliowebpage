@@ -77,7 +77,6 @@ body {
 nav {
     line-height: 350%;
     width: 100vw;
-    top: 5px;
     position: absolute;
     z-index: 998;
     display: flex;
@@ -97,14 +96,9 @@ nav {
             content: '\f406';
         }
     }
-
-
-    .nav-menu-visible {
-        width: 100%;
-    }
-
-    .nav-menu {
+    .nav-menu, .nav-menu-visible {
         width: 0%;
+        overflow: hidden;
         display: flex;
         justify-content: space-evenly;
         flex-direction: row;
@@ -113,7 +107,6 @@ nav {
         font-size: 2.2vmax;
         font-weight: 700;
         background-color: rgba(0, 0, 0, 0.7);
-        overflow: hidden;
         .nav-item {
             padding-right: 15px;
             position: relative;
@@ -135,6 +128,7 @@ nav {
         }
     }
 }
+
 
 .section {
     max-height:100vh;
@@ -272,6 +266,7 @@ nav {
                 justify-content: center;
                 align-items: center;
                 text-align: justify;
+                
             }
             h1 {
                 @include font-size-family-color($main-page-font, 3vmax, $title-color);

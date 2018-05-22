@@ -38,7 +38,6 @@ body {
 nav {
   line-height: 350%;
   width: 100vw;
-  top: 5px;
   position: absolute;
   z-index: 998;
   display: flex;
@@ -55,10 +54,9 @@ nav {
     nav .menu-button:focus:before {
       font-family: 'Genericons';
       content: '\f406'; }
-  nav .nav-menu-visible {
-    width: 100%; }
-  nav .nav-menu {
+  nav .nav-menu, nav .nav-menu-visible {
     width: 0%;
+    overflow: hidden;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
@@ -66,19 +64,18 @@ nav {
     font-family: "IBM Plex Serif", serif;
     font-size: 2.2vmax;
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.7);
-    overflow: hidden; }
-    nav .nav-menu .nav-item {
+    background-color: rgba(0, 0, 0, 0.7); }
+    nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
       padding-right: 15px;
       position: relative;
       display: list-item; }
-      nav .nav-menu .nav-item:last-child {
+      nav .nav-menu .nav-item:last-child, nav .nav-menu-visible .nav-item:last-child {
         display: block; }
-      nav .nav-menu .nav-item a {
+      nav .nav-menu .nav-item a, nav .nav-menu-visible .nav-item a {
         text-decoration: none;
         font-family: "Roboto Mono", monospace;
         color: #df8f17; }
-        nav .nav-menu .nav-item a:hover {
+        nav .nav-menu .nav-item a:hover, nav .nav-menu-visible .nav-item a:hover {
           color: white;
           text-decoration: underline;
           transition: all 1s; }

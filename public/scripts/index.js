@@ -1,12 +1,20 @@
 $('#fullpage').fullpage();
 //on Button menu
-/*
-$('#on-click-menu').on('click', function() {
 
-    $('.nav-menu').animate({
-        width:"toggle",  
-    }).toggleClass('nav-menu-visible');
-}); */
+$('#on-click-menu').on('click', () => {
+    if ( $('.nav-menu').css('width') == '0px' ) {
+        $('.nav-menu').animate({
+            width:"100%",  
+        }, 500, () => { $('.nav-menu').css('width', '100%') });
+    } else {
+        $('.nav-menu').animate({
+            width:"0%",  
+        }, 500, () => { $('.nav-menu').css('width', '0%') });
+    }
+});
+
+
+
 // on Click scroll 
 $('.scroll-button').mouseenter(function(){
     $('.scroll-line').animate({
