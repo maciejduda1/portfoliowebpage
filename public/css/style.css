@@ -8,8 +8,7 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #ffffff;
-  background-image: linear-gradient(45deg, #da1818, #108dc7); }
+  background-color: #1b1e1f; }
 
 #fullpage {
   display: grid;
@@ -56,10 +55,12 @@ nav {
     nav .menu-button:focus:before {
       font-family: 'Genericons';
       content: '\f406'; }
+  nav .nav-menu-visible {
+    width: 100%; }
   nav .nav-menu {
-    width: 100%;
+    width: 0%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     flex-direction: row;
     list-style-type: none;
     font-family: "IBM Plex Serif", serif;
@@ -76,7 +77,7 @@ nav {
       nav .nav-menu .nav-item a {
         text-decoration: none;
         font-family: "Roboto Mono", monospace;
-        color: #941e1e; }
+        color: #df8f17; }
         nav .nav-menu .nav-item a:hover {
           color: white;
           text-decoration: underline;
@@ -87,17 +88,22 @@ nav {
 
 .section-start-page {
   grid-area: section-start-page;
-  background-image: url("../images/code-coding-computer-front.jpg");
-  background-color: #003442;
-  background-size: cover; }
+  /*    background-image: url('../images/code-coding-computer-front.jpg');*/ }
   .section-start-page div {
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    flex-direction: column; }
+    .section-start-page div img {
+      width: 60vw;
+      height: 20vh;
+      object-fit: cover;
+      box-shadow: 5px 5px 5px #000000; }
     .section-start-page div .title {
-      color: #941e1e;
+      color: #df8f17;
       font-family: "Gloria Hallelujah", cursive;
-      font-size: 4em; }
+      font-size: 4em;
+      text-shadow: 3px 3px 1px #000000; }
       .section-start-page div .title .subtitle {
         display: block;
         font-size: 2rem; }
@@ -123,9 +129,11 @@ nav {
       .section-bio div .bio-text #bio-life-text, .section-bio div .bio-text #bio-skills-text, .section-bio div .bio-text #bio-work-text {
         font-family: "Josefin Sans", sans-serif;
         font-size: 2.4vmax;
-        color: #101803;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 15px;
         text-align: justify;
-        text-justify: auto;
+        line-height: 3vmax;
         display: flex;
         flex-direction: column;
         align-items: center; }
@@ -133,11 +141,12 @@ nav {
           align-self: flex-start;
           margin-top: 10px; }
         .section-bio div .bio-text #bio-life-text h2, .section-bio div .bio-text #bio-skills-text h2, .section-bio div .bio-text #bio-work-text h2 {
-          margin-top: 10px; }
+          margin-top: 10px;
+          text-decoration: underline; }
       .section-bio div .bio-text #bio-work-text h2 {
         font-size: 4vmax; }
       .section-bio div .bio-text #bio-work-text span {
-        color: #6C3304;
+        color: #ffffff;
         padding: 2% 0;
         display: block; }
     .section-bio div .bio-buttons {
@@ -149,12 +158,12 @@ nav {
       .section-bio div .bio-buttons a {
         font-family: "IBM Plex Serif", serif;
         font-size: 2.5vmax;
-        color: #101803;
+        color: #ffffff;
         padding-right: 10px;
         text-decoration: none; }
         .section-bio div .bio-buttons a:focus {
           text-decoration: wavy;
-          color: #6C3304;
+          color: #ffffff;
           font-size: 2.3vmax; }
         .section-bio div .bio-buttons a:hover {
           color: white;
@@ -168,16 +177,37 @@ nav {
     flex-direction: column;
     justify-content: space-around;
     align-items: center; }
+    .section-portfolio .portfolio-wrapper h1 {
+      color: #df8f17;
+      margin-top: 20%; }
     .section-portfolio .portfolio-wrapper .project {
+      max-height: 40%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-content: space-around; }
+      align-items: center;
+      flex-wrap: nowrap;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #ffffff; }
+      .section-portfolio .portfolio-wrapper .project img {
+        width: 50%;
+        height: 20vh;
+        object-fit: scale-down; }
       .section-portfolio .portfolio-wrapper .project p {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center; }
+        align-items: center;
+        text-align: justify; }
+      .section-portfolio .portfolio-wrapper .project h1 {
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 3vmax;
+        color: #df8f17;
+        width: 100%;
+        margin-top: 5px;
+        text-align: center; }
+      .section-portfolio .portfolio-wrapper .project a {
+        text-decoration: none;
+        color: #df8f17; }
       .section-portfolio .portfolio-wrapper .project h1.github-acc:before {
         font-family: 'Genericons';
         content: '\f200'; }
@@ -188,7 +218,7 @@ nav {
   flex-direction: column; }
   .section-contact h1 {
     font-size: 3vmax;
-    color: #101803;
+    color: #ffffff;
     text-align: center; }
   .section-contact form {
     display: flex;

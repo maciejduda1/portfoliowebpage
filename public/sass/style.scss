@@ -1,11 +1,11 @@
 //colors
-$main-background: #ffffff;
+$main-background: #1b1e1f;
 $nav-link-color: #ffffff;
 $nav-link-color-hover: rgb(255, 255, 255);
-$hero-blend-mode-color: #003442;
-$main-text-color: #101803;
-$secondary-text-color: #6C3304;
-$title-color: rgb(148, 30, 30);
+$hero-blend-mode-color: rgba(0, 0, 0, 0.7);
+$main-text-color: #ffffff;
+$secondary-text-color: #ffffff;
+$title-color: rgb(223, 143, 23);
 //fonts
 $main-page-font: 'Josefin Sans', sans-serif;
 $italic-font: 'Gloria Hallelujah', cursive;
@@ -26,6 +26,10 @@ $boxes-font: 'IBM Plex Serif', serif;
     font-size: $font-size;
     color: $font-color;
 }
+@mixin background-box-text-colors ($background-color, $font-color) {
+    background-color: $background-color;
+    color: $font-color;
+}
 //
 * {
     margin: 0;
@@ -35,7 +39,6 @@ $boxes-font: 'IBM Plex Serif', serif;
 
 body {
     background-color: $main-background;
-    background-image: linear-gradient(45deg, rgb(218, 24, 24), rgb(16, 141, 199));
 }
 
 #fullpage {
@@ -94,10 +97,16 @@ nav {
             content: '\f406';
         }
     }
-    .nav-menu {
+
+
+    .nav-menu-visible {
         width: 100%;
+    }
+
+    .nav-menu {
+        width: 0%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-evenly;
         flex-direction: row;
         list-style-type: none;
         font-family: $boxes-font;
@@ -133,19 +142,24 @@ nav {
 
 .section-start-page {
     grid-area: section-start-page;
-    background-image: url('../images/code-coding-computer-front.jpg');
-    background-color: $hero-blend-mode-color;
-    background-size: cover;
-//    background-blend-mode: color-dodge;
+/*    background-image: url('../images/code-coding-computer-front.jpg');*/
     
     div {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        img {
+            width:60vw;
+            height:20vh;
+            object-fit: cover;
+            box-shadow: 5px 5px 5px #000000;
+        }
         .title {
             color: $title-color;
             font-family: $italic-font;
             font-size: 4em;
+            text-shadow: 3px 3px 1px #000000;
             .subtitle {
                 display: block;
                 font-size: 2rem;
@@ -175,9 +189,11 @@ nav {
             justify-content: flex-start;
             align-items: center;
             #bio-life-text, #bio-skills-text, #bio-work-text {
-                @include font-size-family-color($main-page-font, 2.4vmax, $main-text-color);   
-                text-align: justify;   
-                text-justify: auto;         
+                @include font-size-family-color($main-page-font, 2.4vmax, $main-text-color);  
+                background-color: $hero-blend-mode-color;
+                padding: 15px; 
+                text-align: justify;
+                line-height: 3vmax;         
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -187,6 +203,7 @@ nav {
                 }
                 h2 {
                     margin-top: 10px;
+                    text-decoration: underline;
                 }
             }
             #bio-work-text {
@@ -233,16 +250,38 @@ nav {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        h1 {
+            color: $title-color;
+            margin-top: 20%;
+        }
         .project {
+            max-height: 40%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-content: space-around;
+            align-items: center;
+            flex-wrap: nowrap;
+            @include background-box-text-colors($hero-blend-mode-color, $main-text-color);
+            img {
+                width: 50%;
+                height: 20vh;
+                object-fit: scale-down;
+            }
             p {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                text-align: justify;
+            }
+            h1 {
+                @include font-size-family-color($main-page-font, 3vmax, $title-color);
+                width: 100%;
+                margin-top: 5px;
+                text-align: center;
+            }
+            a {
+                text-decoration: none;
+                color: $title-color;
             }
             h1.github-acc {
             //    background-color: #24292e;

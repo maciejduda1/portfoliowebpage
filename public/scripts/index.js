@@ -1,11 +1,12 @@
 $('#fullpage').fullpage();
 //on Button menu
-
+/*
 $('#on-click-menu').on('click', function() {
+
     $('.nav-menu').animate({
-        width:"toggle",
-    })
-}); 
+        width:"toggle",  
+    }).toggleClass('nav-menu-visible');
+}); */
 // on Click scroll 
 $('.scroll-button').mouseenter(function(){
     $('.scroll-line').animate({
