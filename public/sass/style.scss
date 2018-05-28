@@ -1,11 +1,12 @@
 //colors
-$main-background: #1b1e1f;
+$main-background: #1ca4d1;
 $nav-link-color: #ffffff;
-$nav-link-color-hover: rgb(255, 255, 255);
+$nav-link-color-hover: rgb(252, 115, 24);
 $hero-blend-mode-color: rgba(0, 0, 0, 0.7);
 $main-text-color: #ffffff;
 $secondary-text-color: #ffffff;
-$title-color: rgb(223, 143, 23);
+$title-color: rgb(233, 228, 221);
+$general-font-size: 2vmax;
 //fonts
 $main-page-font: 'Josefin Sans', sans-serif;
 $italic-font: 'Gloria Hallelujah', cursive;
@@ -39,6 +40,7 @@ $boxes-font: 'IBM Plex Serif', serif;
 
 body {
     background-color: $main-background;
+    font-size: $general-font-size;
 }
 
 #fullpage {
@@ -54,12 +56,12 @@ body {
 
 .scroll-button {
     position: absolute;
-    top: 90%;
+    bottom: 5%;
     left: 90%;
     transform: rotate(90deg);
     z-index: 999;
     cursor: pointer;
-    a {
+    a {      
         text-decoration: none;
         color: $nav-link-color;
         z-index: 999;
@@ -75,7 +77,7 @@ body {
 }
 
 nav {
-    line-height: 350%;
+    line-height: 300%;
     width: 100vw;
     position: absolute;
     z-index: 998;
@@ -83,7 +85,7 @@ nav {
     flex-direction: row-reverse;
     align-content: flex-end;
     .menu-button {
-        background-color: rgba(0, 0, 0, 0.7);
+     /*   background-color: rgba(0, 0, 0, 0.7);*/
         color: $nav-link-color;
         cursor: pointer;
         &:before { 
@@ -106,11 +108,17 @@ nav {
         font-family: $boxes-font;
         font-size: 2.2vmax;
         font-weight: 700;
-        background-color: rgba(0, 0, 0, 0.7);
+    /*    background-color: rgba(0, 0, 0, 0.7); */
+        @media screen and (orientation: landscape) {
+            justify-content: flex-end;
+        }
         .nav-item {
             padding-right: 15px;
             position: relative;
             display: list-item;
+            @media screen and (min-width: 1024px) {
+                padding-right: 40px;
+            }
             &:last-child {
                 display: block;
             }
@@ -118,9 +126,8 @@ nav {
                 text-decoration: none;
                 font-family: $secondary-page-font;
                 color: $title-color;
-                &:hover {
+                &:hover, &:focus {
                     color: $nav-link-color-hover;
-                    text-decoration: underline;
                     transition: all 1s;
                     
                 }
@@ -131,7 +138,8 @@ nav {
 
 
 .section {
-    max-height:100vh;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 .section-start-page {
@@ -143,11 +151,23 @@ nav {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        .face-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+            img {
+                width: inherit;
+                height: inherit;
+                object-fit: cover;
+                
+            }
+        }
         img {
             width:60vw;
             height:20vh;
             object-fit: cover;
-            box-shadow: 5px 5px 5px #000000;
+            box-shadow: 5px 5px 5px rgb(0, 0, 0);
         }
         .title {
             color: $title-color;
@@ -185,6 +205,7 @@ nav {
             #bio-life-text, #bio-skills-text, #bio-work-text {
                 @include font-size-family-color($main-page-font, 2.4vmax, $main-text-color);  
                 background-color: $hero-blend-mode-color;
+                border-radius: 15px;
                 padding: 15px; 
                 text-align: justify;
                 line-height: 3vmax;         
@@ -219,17 +240,32 @@ nav {
             flex-direction: row;
             a {
                 @include font-size-family-color($boxes-font, 2.5vmax, $main-text-color);
-                padding-right: 10px;
                 text-decoration: none;
+                transition: 0.3s;
+                padding: 10px 0 ;
+                position: relative;
+                display: block;
                 &:focus {
-                    text-decoration: wavy;
-                    color: $secondary-text-color;
-                    font-size: 2.3vmax;
-                }
-                &:hover {
+                    transition: 0s;
                     color: $nav-link-color-hover;
-                    font-size: 2.3vmax;
                 }
+                &:before {
+                    content: "";
+                    border-bottom: 1px solid;
+                    padding: 0 10px;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    margin: 0 auto;
+                    transition: 0.3s;
+                    width: 0%;
+                }
+                &:hover:before, &:focus::before {
+                        width: 100%;
+                        padding: 0;
+                    }
             }
         }
     } 
@@ -239,33 +275,37 @@ nav {
 .section-portfolio {
     grid-area: section-portfolio; 
     .portfolio-wrapper {
-        height: 100vh;
+        height: 90vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         h1 {
             color: $title-color;
-            margin-top: 20%;
         }
         .project {
+            min-height: 35%;
             max-height: 40%;
+            margin-bottom: 5px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             @include background-box-text-colors($hero-blend-mode-color, $main-text-color);
             img {
-                width: 50%;
+                width: 100%;
                 height: 20vh;
-                object-fit: scale-down;
+                object-fit: cover;
+                object-position: 0 0;
+                padding: inherit;
             }
             p {
+                width: 60%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                text-align: justify;
+                text-align: center;
                 
             }
             h1 {
@@ -275,8 +315,10 @@ nav {
                 text-align: center;
             }
             a {
+                padding-left: 2px;
                 text-decoration: none;
                 color: $title-color;
+                width: 40%;
             }
             h1.github-acc {
             //    background-color: #24292e;
@@ -303,6 +345,7 @@ nav {
         display: flex;
         flex-direction: column;
         align-items: center;
+        color: $main-text-color;
     }
     .media-icons {
         margin-top:5vh;
@@ -364,5 +407,28 @@ nav {
         color: rgb(35, 75, 185);
         font-family: 'Genericons';
         content: '\f410';
+    }
+}
+
+@media screen and (min-width: 768px) {
+    nav {
+        line-height: 200%;
+        .menu-button {
+            &:before { 
+            }
+            &:focus:before {
+            }
+        }
+        .nav-menu, .nav-menu-visible {
+            font-size: 2.0vmax;
+            .nav-item {
+                &:last-child {   
+                }
+                a {
+                    &:hover, &:focus {
+                    }
+                }
+            }
+        }
     }
 }

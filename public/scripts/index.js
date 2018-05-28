@@ -1,6 +1,8 @@
+//fulpage.js
 $('#fullpage').fullpage();
-//on Button menu
+$.fn.fullpage.setScrollingSpeed(1500);
 
+//on Button menu
 $('#on-click-menu').on('click', () => {
     if ( $('.nav-menu').css('width') == '0px' ) {
         $('.nav-menu').animate({
@@ -13,9 +15,8 @@ $('#on-click-menu').on('click', () => {
     }
 });
 
+//on Click scroll 
 
-
-// on Click scroll 
 $('.scroll-button').mouseenter(function(){
     $('.scroll-line').animate({
         width: '150px',

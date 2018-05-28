@@ -8,7 +8,8 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #1b1e1f; }
+  background-color: #1ca4d1;
+  font-size: 2vmax; }
 
 #fullpage {
   display: grid;
@@ -18,7 +19,7 @@ body {
 
 .scroll-button {
   position: absolute;
-  top: 90%;
+  bottom: 5%;
   left: 90%;
   transform: rotate(90deg);
   z-index: 999;
@@ -36,7 +37,7 @@ body {
     position: absolute; }
 
 nav {
-  line-height: 350%;
+  line-height: 300%;
   width: 100vw;
   position: absolute;
   z-index: 998;
@@ -44,7 +45,7 @@ nav {
   flex-direction: row-reverse;
   align-content: flex-end; }
   nav .menu-button {
-    background-color: rgba(0, 0, 0, 0.7);
+    /*   background-color: rgba(0, 0, 0, 0.7);*/
     color: #ffffff;
     cursor: pointer; }
     nav .menu-button:before {
@@ -64,24 +65,30 @@ nav {
     font-family: "IBM Plex Serif", serif;
     font-size: 2.2vmax;
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.7); }
+    /*    background-color: rgba(0, 0, 0, 0.7); */ }
+    @media screen and (orientation: landscape) {
+      nav .nav-menu, nav .nav-menu-visible {
+        justify-content: flex-end; } }
     nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
       padding-right: 15px;
       position: relative;
       display: list-item; }
+      @media screen and (min-width: 1024px) {
+        nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
+          padding-right: 40px; } }
       nav .nav-menu .nav-item:last-child, nav .nav-menu-visible .nav-item:last-child {
         display: block; }
       nav .nav-menu .nav-item a, nav .nav-menu-visible .nav-item a {
         text-decoration: none;
         font-family: "Roboto Mono", monospace;
-        color: #df8f17; }
-        nav .nav-menu .nav-item a:hover, nav .nav-menu-visible .nav-item a:hover {
-          color: white;
-          text-decoration: underline;
+        color: #e9e4dd; }
+        nav .nav-menu .nav-item a:hover, nav .nav-menu .nav-item a:focus, nav .nav-menu-visible .nav-item a:hover, nav .nav-menu-visible .nav-item a:focus {
+          color: #fc7318;
           transition: all 1s; }
 
 .section {
-  max-height: 100vh; }
+  max-height: 100vh;
+  overflow: hidden; }
 
 .section-start-page {
   grid-area: section-start-page;
@@ -91,13 +98,22 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column; }
+    .section-start-page div .face-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 50%; }
+      .section-start-page div .face-img img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover; }
     .section-start-page div img {
       width: 60vw;
       height: 20vh;
       object-fit: cover;
-      box-shadow: 5px 5px 5px #000000; }
+      box-shadow: 5px 5px 5px black; }
     .section-start-page div .title {
-      color: #df8f17;
+      color: #e9e4dd;
       font-family: "Gloria Hallelujah", cursive;
       font-size: 4em;
       text-shadow: 3px 3px 1px #000000; }
@@ -128,6 +144,7 @@ nav {
         font-size: 2.4vmax;
         color: #ffffff;
         background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 15px;
         padding: 15px;
         text-align: justify;
         line-height: 3vmax;
@@ -156,55 +173,75 @@ nav {
         font-family: "IBM Plex Serif", serif;
         font-size: 2.5vmax;
         color: #ffffff;
-        padding-right: 10px;
-        text-decoration: none; }
+        text-decoration: none;
+        transition: 0.3s;
+        padding: 10px 0;
+        position: relative;
+        display: block; }
         .section-bio div .bio-buttons a:focus {
-          text-decoration: wavy;
-          color: #ffffff;
-          font-size: 2.3vmax; }
-        .section-bio div .bio-buttons a:hover {
-          color: white;
-          font-size: 2.3vmax; }
+          transition: 0s;
+          color: #fc7318; }
+        .section-bio div .bio-buttons a:before {
+          content: "";
+          border-bottom: 1px solid;
+          padding: 0 10px;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin: 0 auto;
+          transition: 0.3s;
+          width: 0%; }
+        .section-bio div .bio-buttons a:hover:before, .section-bio div .bio-buttons a:focus::before {
+          width: 100%;
+          padding: 0; }
 
 .section-portfolio {
   grid-area: section-portfolio; }
   .section-portfolio .portfolio-wrapper {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center; }
     .section-portfolio .portfolio-wrapper h1 {
-      color: #df8f17;
-      margin-top: 20%; }
+      color: #e9e4dd; }
     .section-portfolio .portfolio-wrapper .project {
+      min-height: 35%;
       max-height: 40%;
+      margin-bottom: 5px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       background-color: rgba(0, 0, 0, 0.7);
       color: #ffffff; }
       .section-portfolio .portfolio-wrapper .project img {
-        width: 50%;
+        width: 100%;
         height: 20vh;
-        object-fit: scale-down; }
+        object-fit: cover;
+        object-position: 0 0;
+        padding: inherit; }
       .section-portfolio .portfolio-wrapper .project p {
+        width: 60%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: justify; }
+        text-align: center; }
       .section-portfolio .portfolio-wrapper .project h1 {
         font-family: "Josefin Sans", sans-serif;
         font-size: 3vmax;
-        color: #df8f17;
+        color: #e9e4dd;
         width: 100%;
         margin-top: 5px;
         text-align: center; }
       .section-portfolio .portfolio-wrapper .project a {
+        padding-left: 2px;
         text-decoration: none;
-        color: #df8f17; }
+        color: #e9e4dd;
+        width: 40%; }
       .section-portfolio .portfolio-wrapper .project h1.github-acc:before {
         font-family: 'Genericons';
         content: '\f200'; }
@@ -220,7 +257,8 @@ nav {
   .section-contact form {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    color: #ffffff; }
   .section-contact .media-icons {
     margin-top: 5vh;
     display: flex;
@@ -267,3 +305,9 @@ nav {
   color: #234bb9;
   font-family: 'Genericons';
   content: '\f410'; }
+
+@media screen and (min-width: 768px) {
+  nav {
+    line-height: 200%; }
+    nav .nav-menu, nav .nav-menu-visible {
+      font-size: 2.0vmax; } }
