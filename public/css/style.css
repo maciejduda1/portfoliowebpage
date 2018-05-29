@@ -70,12 +70,14 @@ nav {
       nav .nav-menu, nav .nav-menu-visible {
         justify-content: flex-end; } }
     nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
-      padding-right: 15px;
       position: relative;
       display: list-item; }
       @media screen and (min-width: 1024px) {
         nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
           padding-right: 40px; } }
+      @media screen and (orientation: landscape) {
+        nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
+          padding-right: 15px; } }
       nav .nav-menu .nav-item:last-child, nav .nav-menu-visible .nav-item:last-child {
         display: block; }
       nav .nav-menu .nav-item a, nav .nav-menu-visible .nav-item a {
@@ -247,25 +249,33 @@ nav {
         content: '\f200'; }
 
 .section-contact {
-  grid-area: section-contact;
-  display: flex;
-  flex-direction: column; }
+  grid-area: section-contact; }
   .section-contact h1 {
     font-size: 3vmax;
     color: #ffffff;
-    text-align: center; }
+    text-align: center;
+    margin-top: 1.5vh; }
+    .section-contact h1:first-child {
+      width: 100%; }
   .section-contact form {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #ffffff; }
+    @media screen and (orientation: landscape) {
+      .section-contact form {
+        width: 50%; } }
   .section-contact .media-icons {
-    margin-top: 5vh;
+    margin-top: 1vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap; }
+    @media screen and (orientation: landscape) {
+      .section-contact .media-icons {
+        flex-direction: column;
+        width: 50%; } }
     .section-contact .media-icons p {
       width: 100%;
       text-align: center; }
@@ -275,10 +285,18 @@ nav {
       color: #ffffff;
       background-color: #ffffff;
       text-decoration: none;
-      font-size: 2vmax;
+      font-size: 1vmax;
       padding: 2vmax;
       border-radius: 50%;
       border: 1px solid white; }
+      @media screen and (orientation: landscape) {
+        .section-contact .media-icons a {
+          margin-right: 0;
+          margin-bottom: 1vh; } }
+      @media screen and (min-width: 1024px) {
+        .section-contact .media-icons a {
+          font-size: 0.5vmax;
+          padding: 1vmax; } }
       .section-contact .media-icons a:last-child {
         margin-right: 0; }
       .section-contact .media-icons a:hover {
@@ -305,9 +323,3 @@ nav {
   color: #234bb9;
   font-family: 'Genericons';
   content: '\f410'; }
-
-@media screen and (min-width: 768px) {
-  nav {
-    line-height: 200%; }
-    nav .nav-menu, nav .nav-menu-visible {
-      font-size: 2.0vmax; } }

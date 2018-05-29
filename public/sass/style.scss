@@ -73,6 +73,7 @@ body {
         width: 50px;
         opacity: 0.3;
         position: absolute;
+        
     }
 }
 
@@ -113,11 +114,13 @@ nav {
             justify-content: flex-end;
         }
         .nav-item {
-            padding-right: 15px;
             position: relative;
             display: list-item;
             @media screen and (min-width: 1024px) {
                 padding-right: 40px;
+            }
+            @media screen and (orientation: landscape ){
+                padding-right: 15px;
             }
             &:last-child {
                 display: block;
@@ -334,26 +337,36 @@ nav {
 //Contact
 .section-contact {
     grid-area: section-contact;
-    display: flex;
-    flex-direction: column;
+   
     h1 {
         font-size: 3vmax;
         color: $main-text-color;
-        text-align: center;
+        text-align: center;   
+        margin-top: 1.5vh;
+        &:first-child {
+            width: 100%;
+        }
     }
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
         color: $main-text-color;
+        @media screen and (orientation: landscape) {
+            width:50%
+        }
     }
     .media-icons {
-        margin-top:5vh;
+        margin-top:1vh;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        @media screen and (orientation: landscape) {
+            flex-direction: column;
+            width: 50%;
+        }
         p {
             width: 100%;
             text-align: center;
@@ -364,10 +377,18 @@ nav {
             color: #ffffff;
             background-color: #ffffff;
             text-decoration: none;
-            font-size: 2vmax;
+            font-size: 1vmax;
             padding: 2vmax;
             border-radius: 50%;
             border: 1px solid white; 
+            @media screen and (orientation: landscape) {
+                margin-right: 0;
+                margin-bottom: 1vh;
+            }
+            @media screen and (min-width:1024px){
+                font-size: 0.5vmax;
+                padding: 1vmax;
+            }
             &:last-child {
                 margin-right: 0;
             }
@@ -375,7 +396,8 @@ nav {
                     background-color: rgb(175, 195, 214);
                 }
             &:before {
-                font-size: 3vmax;      
+                font-size: 3vmax;     
+                 
             }
         }
     }
@@ -407,28 +429,5 @@ nav {
         color: rgb(35, 75, 185);
         font-family: 'Genericons';
         content: '\f410';
-    }
-}
-
-@media screen and (min-width: 768px) {
-    nav {
-        line-height: 200%;
-        .menu-button {
-            &:before { 
-            }
-            &:focus:before {
-            }
-        }
-        .nav-menu, .nav-menu-visible {
-            font-size: 2.0vmax;
-            .nav-item {
-                &:last-child {   
-                }
-                a {
-                    &:hover, &:focus {
-                    }
-                }
-            }
-        }
     }
 }
