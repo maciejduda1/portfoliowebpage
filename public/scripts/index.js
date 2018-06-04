@@ -7,11 +7,11 @@ $('#on-click-menu').on('click', () => {
     if ( $('.nav-menu').css('width') == '0px' ) {
         $('.nav-menu').animate({
             width:"100%",  
-        }, 500, () => { $('.nav-menu').css('width', '100%') });
+        }, 800, () => { $('.nav-menu').css('width', '100%') });
     } else {
         $('.nav-menu').animate({
             width:"0%",  
-        }, 500, () => { $('.nav-menu').css('width', '0%') });
+        }, 800, () => { $('.nav-menu').css('width', '0%') });
     }
 });
 

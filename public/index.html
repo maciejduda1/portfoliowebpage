@@ -52,43 +52,29 @@
                     </div>
                     <div id="bio-skills-text">
                         <h2>IT Skills</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Języki</th>
-                                    <th>Frameworki</th>
-                                    <th>Biblioteki</th>
-                                    <th>Technologie</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr> 
-                                    <td>HTML5</td>
-                                    <td>Express.js</td>
-                                    <td>Bootstrap</td>
-                                    <td>NodeJs</td>
-                                </tr>
-                                <tr>
-                                    <td>CSS3</td>
-                                    <td>React.js</td>
-                                    <td>jQuery</td>
-                                    <td>MongoDB</td>
-                                </tr>
-                                <tr>
-                                    <td>JavaScript</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Git</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Sass</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <ul>
+                            <span>Języki</span> 
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <ul>
+                            <span>Frameworki</span> 
+                            <li>Express.js</li>
+                            <li>React.js</li>
+                        </ul>
+                        <ul>
+                           <span>Biblioteki</span> 
+                            <li>Bootstrap</li>
+                            <li>jQuery</li>
+                        </ul>
+                        <ul>
+                            <span>Technologie</span> 
+                            <li>NodeJs</li>
+                            <li>MongoDB</li>
+                            <li>Git</li>
+                            <li>Sass</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="bio-buttons">
@@ -99,38 +85,51 @@
             
         </div>
         <div class="section section-portfolio" data-anchor="portfolio">
-            <div class="portfolio-wrapper">
-                <h1>Moje projekty: </h1>
+            <div class="portfolio-info">
+                    <h1>Portfolio</h1>
+                    <p>Zapraszam do zapoznania się z moimi projektami. Wkrótce pojawią się kolejne publikacje!!</p>
+            </div>
+            <div class="projects">
                 <div class="project">
-                    <h1><a href="https://movie-compare-app.herokuapp.com/" target="_blank"> Movie Compare App</a></h1>
-                    <a href="https://movie-compare-app.herokuapp.com/" target="_blank"><img src="../images/movie-compare-app-herokuapp.png" alt=""></a>
-                    <p>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JS (React, Redux)</span>
-                        <span>fetch API</span>
-                    </p>
+                    <div class="img-container">
+                        <img src="../images/movie-compare-app-herokuapp.png" alt="">
+                    </div>
+                    <div class="project-info-container">
+                        <h1> Movie Compare App</h1>
+                        <a href="https://movie-compare-app.herokuapp.com/" target="_blank">view</a>
+                    </div>
+                    
                 </div>
                 <div class="project">
-                    <h1 class="github-acc"><a href="https://github.com/maciejduda1">My GitHub</a></h1>
-                    <a href="https://github.com/maciejduda1"><img src="../images/screencapture-github-maciejduda1.png" alt=""></a>
-                    <p>
-                        See what i did and what I'm up to!
-                    </p>
+                    <div class="img-container">
+                        <img src="../images/screencapture-github-maciejduda1.png" alt="">
+                    </div>
+                    <div class="project-info-container">
+                        <h1 class="github-acc">My GitHub</h1>
+                        <a href="https://github.com/maciejduda1" target="_blank">view</a>
+                    </div>
                 </div>
-            </div>  
+                <div class="project">
+                        <div class="img-container">
+                            <img src="../images/ask-blackboard.jpg" alt="">
+                        </div>
+                        <div class="project-info-container">
+                            <h1>Score typer</h1>  
+                        </div>
+                    </div>
+            </div>
         </div>
         <div class="section section-contact" data-anchor="contact">
             <h1>Zapraszam do kontaktu!</h1>
             <form action="https://formspree.io/maciej.duda1@gazeta.pl" method="POST">
                 <input type="hidden" name="_subject" value="Contact Form">
-                <label for="name">name:</label>
-                <input type="text" name="name" placeholder="your name" required> 
-                <label for="_replyto">e-mail:</label>
-                <input type="email" name="_replyto" placeholder="your email" required>
+                <label for="name">Name:</label>
+                <input type="text" name="name" placeholder="Your Name" required> 
+                <label for="_replyto">E-mail:</label>
+                <input type="email" name="_replyto" placeholder="Your email" required>
                 <label for="message">Message:</label>
                 <textarea name="message" placeholder="Your message" cols="30" rows="10" required></textarea>
-                <div>
+                <div class="message-buttons">
                     <input type="submit" value="Send Message">
                     <input type="reset" value="Reset">
                 </div>

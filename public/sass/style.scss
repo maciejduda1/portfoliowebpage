@@ -2,11 +2,12 @@
 $main-background: #1ca4d1;
 $nav-link-color: #ffffff;
 $nav-link-color-hover: rgb(252, 115, 24);
-$hero-blend-mode-color: rgba(0, 0, 0, 0.7);
+$section-background-color: rgba(0, 0, 0, 0.7);
 $main-text-color: #ffffff;
-$secondary-text-color: #ffffff;
+$secondary-text-color: rgb(252, 115, 24);
 $title-color: rgb(233, 228, 221);
 $general-font-size: 2vmax;
+$bigger-font-size: 3vmax;
 //fonts
 $main-page-font: 'Josefin Sans', sans-serif;
 $italic-font: 'Gloria Hallelujah', cursive;
@@ -78,7 +79,8 @@ body {
 }
 
 nav {
-    line-height: 300%;
+    @include font-size-family-color($boxes-font, $general-font-size, $nav-link-color);
+    margin-top: 2vh;
     width: 100vw;
     position: absolute;
     z-index: 998;
@@ -86,17 +88,11 @@ nav {
     flex-direction: row-reverse;
     align-content: flex-end;
     .menu-button {
-     /*   background-color: rgba(0, 0, 0, 0.7);*/
-        color: $nav-link-color;
         cursor: pointer;
         &:before { 
             font-family: 'Genericons';
             content: '\f419';
-            padding-right: 5px;  
-        }
-        &:focus:before {
-            font-family: 'Genericons';
-            content: '\f406';
+            padding-right: 5px; 
         }
     }
     .nav-menu, .nav-menu-visible {
@@ -106,10 +102,6 @@ nav {
         justify-content: space-evenly;
         flex-direction: row;
         list-style-type: none;
-        font-family: $boxes-font;
-        font-size: 2.2vmax;
-        font-weight: 700;
-    /*    background-color: rgba(0, 0, 0, 0.7); */
         @media screen and (orientation: landscape) {
             justify-content: flex-end;
         }
@@ -126,13 +118,11 @@ nav {
                 display: block;
             }
             a {
+                color: inherit;
                 text-decoration: none;
-                font-family: $secondary-page-font;
-                color: $title-color;
                 &:hover, &:focus {
                     color: $nav-link-color-hover;
-                    transition: all 1s;
-                    
+                    transition: all 1s; 
                 }
             }
         }
@@ -147,13 +137,15 @@ nav {
 
 .section-start-page {
     grid-area: section-start-page;
-/*    background-image: url('../images/code-coding-computer-front.jpg');*/
-    
     div {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        @media screen and (orientation: landscape) {
+            flex-direction: row;
+            margin-right: 40px;
+        }
         .face-img {
             width: 80px;
             height: 80px;
@@ -184,6 +176,7 @@ nav {
         } 
     }
 }
+
 //BIO
 .section-bio {
     grid-area: section-bio;
@@ -207,7 +200,7 @@ nav {
             align-items: center;
             #bio-life-text, #bio-skills-text, #bio-work-text {
                 @include font-size-family-color($main-page-font, 2.4vmax, $main-text-color);  
-                background-color: $hero-blend-mode-color;
+                background-color: $section-background-color;
                 border-radius: 15px;
                 padding: 15px; 
                 text-align: justify;
@@ -215,6 +208,7 @@ nav {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
                 p {
                     align-self: flex-start;
                     margin-top: 10px;
@@ -222,6 +216,23 @@ nav {
                 h2 {
                     margin-top: 10px;
                     text-decoration: underline;
+                    text-decoration-color: $nav-link-color-hover;
+                }
+                ul {
+                    margin-top: 10px;
+                    &:nth-child(2) {
+                        align-self: flex-start;
+                    }
+                    &:nth-child(5) {
+                        align-self: flex-end;
+                    }
+                    span {
+                        text-decoration: underline;
+                        text-decoration-color: $nav-link-color-hover;
+                    }
+                    li {
+                        margin-top: 5px;   
+                    }
                 }
             }
             #bio-work-text {
@@ -232,6 +243,17 @@ nav {
                     color: $secondary-text-color;
                     padding: 2% 0;
                     display: block;
+                }
+            }
+            @media screen and (orientation: landscape) {
+                #bio-skills-text {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    h2 {
+                        width: 100%;
+                        text-align: center;
+                    }
                 }
             }
         }
@@ -276,88 +298,120 @@ nav {
 
 // Portfolio
 .section-portfolio {
-    grid-area: section-portfolio; 
-    .portfolio-wrapper {
-        height: 90vh;
+    grid-area: section-portfolio;
+    @include font-size-family-color($boxes-font, $general-font-size, $main-text-color);
+    h1 {    
+        text-align: center;
+        margin-top: 3vmax;
+    } 
+
+    .portfolio-info {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .projects {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        @media screen and (orientation: landscape) {
+            flex-direction: row;
+        }
+    }
+}
+
+.project {
+    @include box-sizing-img(25vmax, 30vmin);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 1px 1px 1px black;
+    .img-container {
+        height: 50%;
+        background-color: #000000;
+        display: flex;
+        align-items: center;
+        img {
+            height: 100%;
+            width: 50%;
+            margin: 0 auto;
+            object-fit: cover;
+            object-position: 0% 0%;
+        }
+    }
+    .project-info-container {
+        height: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         h1 {
-            color: $title-color;
+            font-size: $general-font-size;
+            margin-top: 5px;
         }
-        .project {
-            min-height: 35%;
-            max-height: 40%;
-            margin-bottom: 5px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            flex-wrap: wrap;
-            @include background-box-text-colors($hero-blend-mode-color, $main-text-color);
-            img {
-                width: 100%;
-                height: 20vh;
-                object-fit: cover;
-                object-position: 0 0;
-                padding: inherit;
-            }
-            p {
-                width: 60%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                
-            }
-            h1 {
-                @include font-size-family-color($main-page-font, 3vmax, $title-color);
-                width: 100%;
-                margin-top: 5px;
-                text-align: center;
-            }
-            a {
-                padding-left: 2px;
-                text-decoration: none;
-                color: $title-color;
-                width: 40%;
-            }
-            h1.github-acc {
-            //    background-color: #24292e;
-                &:before {
-                    font-family: 'Genericons';
-                    content: '\f200';
-                }
-            }
+        a {
+            margin-left: 5%;
+            text-decoration: none;
+            color: $secondary-text-color;
+            border: 1px solid black;
+            box-shadow: 1px 1px 1px black;
+            
+            border-radius: 15%;
+            padding: 1px;
+            align-self: flex-start;
         }
-    }   
-}
+    }
+    h1.github-acc {
+        &:before {
+            font-family: 'Genericons';
+            content: '\f200';
+            margin-right: 5px;
+        }
+    }
+} 
 
 //Contact
 .section-contact {
     grid-area: section-contact;
-   
+    @include font-size-family-color($main-page-font, $general-font-size, $main-text-color);
     h1 {
-        font-size: 3vmax;
-        color: $main-text-color;
-        text-align: center;   
+        font-size: $bigger-font-size;   
         margin-top: 1.5vh;
         &:first-child {
             width: 100%;
         }
     }
     form {
+        min-height: 65%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: $main-text-color;
+        justify-content: space-around;
+        
+        input {
+            line-height: 200%;
+            width: 80%;
+        }
+        textarea {
+            width: 100%;
+            line-height: 150%;
+        }
+        .message-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
         @media screen and (orientation: landscape) {
-            width:50%
+            width:80%
         }
     }
     .media-icons {
-        margin-top:1vh;
+        margin-top: 1vh;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -365,7 +419,7 @@ nav {
         flex-wrap: wrap;
         @media screen and (orientation: landscape) {
             flex-direction: column;
-            width: 50%;
+            width: 20%;
         }
         p {
             width: 100%;
@@ -396,8 +450,7 @@ nav {
                     background-color: rgb(175, 195, 214);
                 }
             &:before {
-                font-size: 3vmax;     
-                 
+                font-size: 3vmax;        
             }
         }
     }
