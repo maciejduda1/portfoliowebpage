@@ -36,11 +36,12 @@ body {
     opacity: 1; }
     .scroll-button a::after {
       top: 50%;
-      width: 130%;
+      width: 200%;
       left: 0%;
       content: '';
       position: absolute;
-      border: 1px solid #ffffff; }
+      border-top: 1px solid #ffffff;
+      transition: all 0.5s; }
     .scroll-button a:hover::after {
       top: 50%;
       left: -50%;
