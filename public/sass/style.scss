@@ -1,5 +1,5 @@
 //colors
-$main-background: #1ca4d1;
+$main-background: #1ca4d1; 
 $nav-link-color: #ffffff;
 $nav-link-color-hover: rgb(252, 115, 24);
 $section-background-color: rgba(0, 0, 0, 0.7);
@@ -46,13 +46,21 @@ body {
 
 #fullpage {
     display: grid;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 1% 98% 1%;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
         "section-start-page section-start-page section-start-page"
         ". section-bio ."
         ". section-portfolio ."
         ". section-contact .";     
+    @media screen and (orientation: landscape)  {
+        grid-template-columns: 10% 80% 10%;
+        grid-template-areas: 
+        "section-start-page section-start-page section-start-page"
+        ". section-bio ."
+        ". section-portfolio ."
+        ". section-contact .";  
+    }
 }
 
 .scroll-button {
@@ -202,13 +210,15 @@ nav {
                 @include font-size-family-color($main-page-font, 2.4vmax, $main-text-color);  
                 background-color: $section-background-color;
                 border-radius: 15px;
-                padding: 15px; 
+                padding:0 15px 15px 15px; 
                 text-align: justify;
                 line-height: 3vmax;         
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
                 width: 100%;
+                min-height: 80%;
                 p {
                     align-self: flex-start;
                     margin-top: 10px;
@@ -226,6 +236,11 @@ nav {
                     &:nth-child(5) {
                         align-self: flex-end;
                     }
+                    @media screen and (orientation: landscape){
+                        &:nth-child(5) {
+                            align-self: flex-start;
+                        }
+                    }
                     span {
                         text-decoration: underline;
                         text-decoration-color: $nav-link-color-hover;
@@ -233,6 +248,7 @@ nav {
                     li {
                         margin-top: 5px;   
                     }
+
                 }
             }
             #bio-work-text {
@@ -245,6 +261,7 @@ nav {
                     display: block;
                 }
             }
+            
             @media screen and (orientation: landscape) {
                 #bio-skills-text {
                     flex-direction: row;
@@ -306,64 +323,86 @@ nav {
     } 
 
     .portfolio-info {
-        height: 40vh;
+        height: 20vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
+        @media screen and (orientation: landscape) {
+            height: 40vh
+        }
     }
 
     .projects {
-        height: 60vh;
+        height: 80vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         @media screen and (orientation: landscape) {
             flex-direction: row;
+            height: 60vh;
         }
     }
 }
 
 .project {
-    @include box-sizing-img(25vmax, 30vmin);
+    @include box-sizing-img(99%, 30%);
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     box-shadow: 1px 1px 1px black;
+    @media screen and (orientation: landscape) {
+        @include box-sizing-img(30%, 50%);
+    }
     .img-container {
         height: 50%;
         background-color: #000000;
         display: flex;
         align-items: center;
-        img {
+        img {   
             height: 100%;
             width: 50%;
             margin: 0 auto;
             object-fit: cover;
-            object-position: 0% 0%;
+            object-position: 50% 0%;
+        }
+        #new-project {
+            object-fit: fill;
         }
     }
     .project-info-container {
+        width: 100%;
         height: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+        background-color: $section-background-color;
+        @media screen and (orientation: landscape) {
+            object-position: 50% 50%;
+            justify-content: space-between;
+        }
         h1 {
             font-size: $general-font-size;
             margin-top: 5px;
+            text-decoration: underline;
+            text-decoration-color: $secondary-text-color;
         }
         a {
             margin-left: 5%;
+            margin-bottom: 2px;
             text-decoration: none;
-            color: $secondary-text-color;
+            color: $main-text-color;
             border: 1px solid black;
             box-shadow: 1px 1px 1px black;
-            
             border-radius: 15%;
             padding: 1px;
             align-self: flex-start;
+            &:hover, &:focus {
+                color: $secondary-text-color;
+            }
         }
     }
     h1.github-acc {
@@ -402,9 +441,19 @@ nav {
             line-height: 150%;
         }
         .message-buttons {
-            width: 100%;
+            width: 80%;
             display: flex;
             justify-content: space-evenly;
+            align-content: space-between;
+            input {
+                background: $section-background-color;
+                border: 1px solid $secondary-text-color;
+                color: $main-text-color;
+                width: 45%;
+                &:hover {
+                    color: $secondary-text-color;
+                }
+            }
         }
         @media screen and (orientation: landscape) {
             width:80%
