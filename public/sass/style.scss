@@ -76,13 +76,23 @@ body {
         z-index: 999;
         margin-right: 10px;
         opacity: 1;
-    }
-    hr {
-        margin-left: 50px;
-        width: 50px;
-        opacity: 0.3;
-        position: absolute;
-        
+        &::after {
+            top: 50%;
+            width: 130%;
+            left: 0%;
+            content: '';
+            position: absolute;
+            border: 1px solid $main-text-color;
+        }
+        &:hover {
+            &::after {
+                top: 50%;
+                left: -50%;
+                transition: all 0.5s;
+                width: 200%;
+                opacity: 0.8;
+            }
+        }
     }
 }
 
