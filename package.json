@@ -9,9 +9,11 @@
   "author": "Maciej Duda",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^8.6.0",
     "grunt": "^1.0.2",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.1.0"
   },
   "dependencies": {

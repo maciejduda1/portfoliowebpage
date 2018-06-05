@@ -11,6 +11,17 @@ module.exports = function(grunt) {
                 }
             }
         },
+        postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('autoprefixer')({browsers: ['last 1 version']})
+                ]
+            },
+            dist: {
+                src: 'public/css/style.css' 
+            }
+        },
         watch: {
             files: 'public/sass/*.scss', 
             tasks: ['sass'],
@@ -38,6 +49,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ['browserSync', 'watch']);
+    grunt.loadNpmTasks('grunt-postcss');
+    grunt.registerTask('default', ['browserSync', 'postcss', 'watch']);
   
   };
