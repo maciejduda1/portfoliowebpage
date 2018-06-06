@@ -243,9 +243,11 @@ nav {
                 ul {
                     margin-top: 10px;
                     &:nth-child(2) {
+                        margin-left: 5%;
                         align-self: flex-start;
                     }
                     &:nth-child(5) {
+                        margin-right: 5%;
                         align-self: flex-end;
                     }
                     @media screen and (orientation: landscape){

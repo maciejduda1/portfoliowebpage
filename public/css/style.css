@@ -176,8 +176,10 @@ nav {
         .section-bio div .bio-text #bio-life-text ul, .section-bio div .bio-text #bio-skills-text ul, .section-bio div .bio-text #bio-work-text ul {
           margin-top: 10px; }
           .section-bio div .bio-text #bio-life-text ul:nth-child(2), .section-bio div .bio-text #bio-skills-text ul:nth-child(2), .section-bio div .bio-text #bio-work-text ul:nth-child(2) {
+            margin-left: 5%;
             align-self: flex-start; }
           .section-bio div .bio-text #bio-life-text ul:nth-child(5), .section-bio div .bio-text #bio-skills-text ul:nth-child(5), .section-bio div .bio-text #bio-work-text ul:nth-child(5) {
+            margin-right: 5%;
             align-self: flex-end; }
           @media screen and (orientation: landscape) {
             .section-bio div .bio-text #bio-life-text ul:nth-child(5), .section-bio div .bio-text #bio-skills-text ul:nth-child(5), .section-bio div .bio-text #bio-work-text ul:nth-child(5) {
