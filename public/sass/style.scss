@@ -8,6 +8,7 @@ $secondary-text-color: rgb(252, 115, 24);
 $title-color: rgb(233, 228, 221);
 $general-font-size: 2vmax;
 $bigger-font-size: 3vmax;
+
 //fonts
 $main-page-font: 'Josefin Sans', sans-serif;
 $italic-font: 'Gloria Hallelujah', cursive;
@@ -70,6 +71,9 @@ body {
     transform: rotate(90deg);
     z-index: 999;
     cursor: pointer;
+    @media screen and (min-width: 1200px) {
+        font-size: 1.5vmax;
+    }
     a {      
         text-decoration: none;
         color: $nav-link-color;
@@ -106,7 +110,11 @@ nav {
     display: flex;
     flex-direction: row-reverse;
     align-content: flex-end;
+    @media screen and (min-width: 1200px) {
+        font-size: 1.5vmax;
+    }
     .menu-button {
+        margin-right: 5%;
         cursor: pointer;
         &:before { 
             font-family: 'Genericons';
@@ -128,11 +136,11 @@ nav {
             padding-right: 25px;
             position: relative;
             display: list-item;
-            @media screen and (min-width: 1024px) {
-                padding-right: 40px;
-            }
             @media screen and (orientation: landscape ){
                 padding-right: 15px;
+                @media (min-width:1024px) {
+                    padding-right: 40px;
+                }
             }
             &:last-child {
                 display: block;
@@ -220,6 +228,9 @@ nav {
             align-items: center;
             #bio-life-text, #bio-skills-text, #bio-work-text {
                 @include font-size-family-color($main-page-font, 2.4vmax, $main-text-color);  
+                @media screen and (min-width: 1200px) {
+                    font-size: 1.6vmax;
+                }
                 background-color: $section-background-color;
                 border-radius: 15px;
                 padding:0 15px 15px 15px; 
@@ -236,6 +247,9 @@ nav {
                     margin-top: 10px;
                 }
                 h2 {
+                    @media screen and (min-width: 1200px) {
+                        font-size: 1.9vmax;
+                    }
                     margin-top: 10px;
                     text-decoration: underline;
                     text-decoration-color: $nav-link-color-hover;
@@ -266,9 +280,7 @@ nav {
                 }
             }
             #bio-work-text {
-                h2 {
-                    font-size: 4vmax;
-                }
+                
                 span {
                     color: $secondary-text-color;
                     padding: 2% 0;
@@ -296,6 +308,9 @@ nav {
             flex-direction: row;
             a {
                 @include font-size-family-color($boxes-font, 2.5vmax, $main-text-color);
+                @media screen and (min-width: 1200px) {
+                    font-size: 1.9vmax;
+                }
                 text-decoration: none;
                 transition: 0.3s;
                 padding: 10px 0 ;

@@ -6,8 +6,8 @@ $.fn.fullpage.setScrollingSpeed(1500);
 $('#on-click-menu').on('click', () => {
     if ( $('.nav-menu').css('width') == '0px' ) {
         $('.nav-menu').animate({
-            width:"90%",  
-        }, 800, () => { $('.nav-menu').css('width', '90%') });
+            width:"80%",  
+        }, 800, () => { $('.nav-menu').css('width', '80%') });
     } else {
         $('.nav-menu').animate({
             width:"0%",  

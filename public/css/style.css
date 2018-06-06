@@ -28,6 +28,9 @@ body {
   transform: rotate(90deg);
   z-index: 999;
   cursor: pointer; }
+  @media screen and (min-width: 1200px) {
+    .scroll-button {
+      font-size: 1.5vmax; } }
   .scroll-button a {
     text-decoration: none;
     color: #ffffff;
@@ -60,7 +63,11 @@ nav {
   display: flex;
   flex-direction: row-reverse;
   align-content: flex-end; }
+  @media screen and (min-width: 1200px) {
+    nav {
+      font-size: 1.5vmax; } }
   nav .menu-button {
+    margin-right: 5%;
     cursor: pointer; }
     nav .menu-button:before {
       font-family: 'Genericons';
@@ -80,12 +87,12 @@ nav {
       padding-right: 25px;
       position: relative;
       display: list-item; }
-      @media screen and (min-width: 1024px) {
-        nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
-          padding-right: 40px; } }
       @media screen and (orientation: landscape) {
         nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
           padding-right: 15px; } }
+  @media screen and (orientation: landscape) and (min-width: 1024px) {
+    nav .nav-menu .nav-item, nav .nav-menu-visible .nav-item {
+      padding-right: 40px; } }
       nav .nav-menu .nav-item:last-child, nav .nav-menu-visible .nav-item:last-child {
         display: block; }
       nav .nav-menu .nav-item a, nav .nav-menu-visible .nav-item a {
@@ -166,6 +173,9 @@ nav {
         justify-content: center;
         width: 100%;
         min-height: 80%; }
+        @media screen and (min-width: 1200px) {
+          .section-bio div .bio-text #bio-life-text, .section-bio div .bio-text #bio-skills-text, .section-bio div .bio-text #bio-work-text {
+            font-size: 1.6vmax; } }
         .section-bio div .bio-text #bio-life-text p, .section-bio div .bio-text #bio-skills-text p, .section-bio div .bio-text #bio-work-text p {
           align-self: flex-start;
           margin-top: 10px; }
@@ -173,6 +183,9 @@ nav {
           margin-top: 10px;
           text-decoration: underline;
           text-decoration-color: #fc7318; }
+          @media screen and (min-width: 1200px) {
+            .section-bio div .bio-text #bio-life-text h2, .section-bio div .bio-text #bio-skills-text h2, .section-bio div .bio-text #bio-work-text h2 {
+              font-size: 1.9vmax; } }
         .section-bio div .bio-text #bio-life-text ul, .section-bio div .bio-text #bio-skills-text ul, .section-bio div .bio-text #bio-work-text ul {
           margin-top: 10px; }
           .section-bio div .bio-text #bio-life-text ul:nth-child(2), .section-bio div .bio-text #bio-skills-text ul:nth-child(2), .section-bio div .bio-text #bio-work-text ul:nth-child(2) {
@@ -189,8 +202,6 @@ nav {
             text-decoration-color: #fc7318; }
           .section-bio div .bio-text #bio-life-text ul li, .section-bio div .bio-text #bio-skills-text ul li, .section-bio div .bio-text #bio-work-text ul li {
             margin-top: 5px; }
-      .section-bio div .bio-text #bio-work-text h2 {
-        font-size: 4vmax; }
       .section-bio div .bio-text #bio-work-text span {
         color: #fc7318;
         padding: 2% 0;
@@ -219,6 +230,9 @@ nav {
         position: relative;
         display: block;
         margin-right: 5%; }
+        @media screen and (min-width: 1200px) {
+          .section-bio div .bio-buttons a {
+            font-size: 1.9vmax; } }
         .section-bio div .bio-buttons a:last-child {
           margin-right: 0; }
         .section-bio div .bio-buttons a:focus {
