@@ -78,7 +78,7 @@ body {
         opacity: 1;
         &::after {
             top: 50%;
-            width: 200%;
+            width: 100%;
             left: 0%;
             content: '';
             position: absolute;
@@ -118,13 +118,14 @@ nav {
         width: 0%;
         overflow: hidden;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-end;
         flex-direction: row;
         list-style-type: none;
         @media screen and (orientation: landscape) {
             justify-content: flex-end;
         }
         .nav-item {
+            padding-right: 25px;
             position: relative;
             display: list-item;
             @media screen and (min-width: 1024px) {
@@ -186,7 +187,7 @@ nav {
         .title {
             color: $title-color;
             font-family: $italic-font;
-            font-size: 4em;
+            font-size: 3.8em;
             text-shadow: 3px 3px 1px #000000;
             .subtitle {
                 display: block;
@@ -277,7 +278,7 @@ nav {
                 #bio-skills-text {
                     flex-direction: row;
                     flex-wrap: wrap;
-                    justify-content: space-evenly;
+                    justify-content: space-between;                    
                     h2 {
                         width: 100%;
                         text-align: center;
@@ -288,7 +289,7 @@ nav {
         .bio-buttons {
             grid-area: bio-buttons;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
             align-items: center;
             flex-direction: row;
             a {
@@ -298,6 +299,10 @@ nav {
                 padding: 10px 0 ;
                 position: relative;
                 display: block;
+                margin-right: 5%;
+                &:last-child {
+                    margin-right: 0;
+                }
                 &:focus {
                     transition: 0s;
                     color: $nav-link-color-hover;
@@ -345,11 +350,12 @@ nav {
     }
 
     .projects {
+        width: 100%;
         height: 80vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-around;
         @media screen and (orientation: landscape) {
             flex-direction: row;
             height: 60vh;
@@ -358,6 +364,7 @@ nav {
 }
 
 .project {
+    margin-right: 5%;
     @include box-sizing-img(99%, 30%);
     display: flex;
     align-items: center;
@@ -365,10 +372,17 @@ nav {
     flex-direction: column;
     box-shadow: 1px 1px 1px black;
     @media screen and (orientation: landscape) {
-        @include box-sizing-img(30%, 50%);
+        @include box-sizing-img(30%, 40%); 
+        @media (min-width: 1024px) {
+            @include box-sizing-img(30%, 50%); 
+        }
+        &:last-child {
+            margin-right: 0;
+        }
     }
     .img-container {
-        height: 50%;
+        height: 60%;
+        width: 100%;
         background-color: #000000;
         display: flex;
         align-items: center;
@@ -384,11 +398,22 @@ nav {
         }
     }
     .project-info-container {
+        font-size: $general-font-size;
+        @media screen and (orientation: landscape) {
+            object-position: 50% 50%;
+            justify-content: space-between;
+            @media screen and (min-width: 900px) {
+            font-size: 1.5vmax
+            }
+            @media screen and (min-width: 1200px) {
+                font-size: 1vmax
+            }
+        }
         width: 100%;
-        height: 50%;
+        height: 40%;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
         background-color: $section-background-color;
         @media screen and (orientation: landscape) {
@@ -397,13 +422,19 @@ nav {
         }
         h1 {
             font-size: $general-font-size;
+            @media screen and (min-width: 900px) {
+                font-size: 1.5vmax
+            }
+            @media screen and (min-width: 1200px) {
+                font-size: 1vmax
+            }
             margin-top: 5px;
             text-decoration: underline;
             text-decoration-color: $secondary-text-color;
         }
         a {
             margin-left: 5%;
-            margin-bottom: 2px;
+            margin-bottom: 3%;
             text-decoration: none;
             color: $main-text-color;
             border: 1px solid black;
@@ -411,6 +442,9 @@ nav {
             border-radius: 15%;
             padding: 1px;
             align-self: flex-start;
+            @media screen and (orientation: landscape) {
+                margin-bottom: 1%;
+            }
             &:hover, &:focus {
                 color: $secondary-text-color;
             }
