@@ -350,9 +350,15 @@ nav {
 .section-portfolio {
     grid-area: section-portfolio;
     @include font-size-family-color($boxes-font, $general-font-size, $main-text-color);
+    @media screen and (min-width: 1200px) {
+        font-size: 1.7vmax;
+    }
     h1 {    
         text-align: center;
         margin-top: 3vmax;
+        @media screen and (min-width: 1200px) {
+            font-size: 2.2vmax;
+        }
     } 
 
     .portfolio-info {
@@ -483,6 +489,9 @@ nav {
     h1 {
         font-size: $bigger-font-size;   
         margin-top: 1.5vh;
+        @media screen and (min-width: 1200px) {
+            font-size: 2.2vmax;
+        }
         &:first-child {
             width: 100%;
         }
@@ -493,7 +502,9 @@ nav {
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        
+        @media screen and (min-width: 1200px) {
+            font-size: 1.5vmax;
+        }
         input {
             line-height: 200%;
             width: 80%;
@@ -561,7 +572,10 @@ nav {
                     background-color: rgb(175, 195, 214);
                 }
             &:before {
-                font-size: 3vmax;        
+                font-size: $bigger-font-size;
+                @media screen and (min-width: 1200px) {
+                    font-size: 2.2vmax;
+                }        
             }
         }
     }
@@ -590,8 +604,16 @@ nav {
 }
 #e-mail {
     &:before {
-        color: rgb(35, 75, 185);
+        color: $nav-link-color-hover;
         font-family: 'Genericons';
         content: '\f410';
+    }
+}
+
+#github {
+    &:before {
+        color: #333;
+        font-family: 'Genericons';
+        content: '\f200';
     }
 }

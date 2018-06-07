@@ -259,9 +259,15 @@ nav {
   font-family: "IBM Plex Serif", serif;
   font-size: 2vmax;
   color: #ffffff; }
+  @media screen and (min-width: 1200px) {
+    .section-portfolio {
+      font-size: 1.7vmax; } }
   .section-portfolio h1 {
     text-align: center;
     margin-top: 3vmax; }
+    @media screen and (min-width: 1200px) {
+      .section-portfolio h1 {
+        font-size: 2.2vmax; } }
   .section-portfolio .portfolio-info {
     height: 20vh;
     display: flex;
@@ -379,6 +385,9 @@ nav {
   .section-contact h1 {
     font-size: 3vmax;
     margin-top: 1.5vh; }
+    @media screen and (min-width: 1200px) {
+      .section-contact h1 {
+        font-size: 2.2vmax; } }
     .section-contact h1:first-child {
       width: 100%; }
   .section-contact form {
@@ -387,6 +396,9 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: space-around; }
+    @media screen and (min-width: 1200px) {
+      .section-contact form {
+        font-size: 1.5vmax; } }
     .section-contact form input {
       line-height: 200%;
       width: 80%; }
@@ -446,6 +458,9 @@ nav {
         background-color: #afc3d6; }
       .section-contact .media-icons a:before {
         font-size: 3vmax; }
+        @media screen and (min-width: 1200px) {
+          .section-contact .media-icons a:before {
+            font-size: 2.2vmax; } }
 
 #twitter:before {
   color: #0084b4;
@@ -463,6 +478,11 @@ nav {
   content: '\f207'; }
 
 #e-mail:before {
-  color: #234bb9;
+  color: #fc7318;
   font-family: 'Genericons';
   content: '\f410'; }
+
+#github:before {
+  color: #333;
+  font-family: 'Genericons';
+  content: '\f200'; }
